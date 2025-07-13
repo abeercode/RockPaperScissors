@@ -15,12 +15,12 @@ function getComputerChoice() {
 
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("choose rock or paper or Scissors");
-    return humanChoice.toLowerCase().trim();
+// function getHumanChoice() {
+//     let humanChoice = prompt("choose rock or paper or Scissors");
+//     return humanChoice.toLowerCase().trim();
 
 
-}
+// }
 
 function playRound(humanChoice, computerChoice) {
 
@@ -74,9 +74,23 @@ function playRound(humanChoice, computerChoice) {
 function playGame(){
 
 
-    for( let step =0 ; step< 5 ; step ++){
-        playRound(getHumanChoice(), getComputerChoice() )
-    }
+    // for( let step =0 ; step< 5 ; step ++){
+    //     playRound(getHumanChoice(), getComputerChoice() )
+    // }
+    const rock = document.querySelector("#rock")
+    rock.addEventListener("click", () => {playRound("rock" , getComputerChoice())});
+
+
+    const paper = document.querySelector("#paper")
+    paper.addEventListener("click" , ()=> {
+        playRound("paper" , getComputerChoice())
+
+    })
+        const scissors = document.querySelector("#scissors")
+    scissors.addEventListener("click" , ()=> {
+        playRound("scissors" , getComputerChoice())
+
+    })
 
     if (humanScore > computerScore) {
         console.log ( "you win this game congrats !!!")
