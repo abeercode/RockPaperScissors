@@ -1,5 +1,8 @@
 var humanScore = 0;
 var computerScore = 0;
+const finalResult = document.querySelector("#finalResult")
+const result = document.querySelector(".result");
+const rScores = document.querySelector(".rScores");
 
 function getComputerChoice() {
 
@@ -15,13 +18,13 @@ function getComputerChoice() {
 
 function playRound(humanChoice, computerChoice) {
 
-    const result = document.querySelector(".result");
-    const rScores = document.querySelector(".rScores");
-            finalResult.textContent = ""
+
+    finalResult.textContent = ""
 
     if (humanChoice === computerChoice) {
         result.textContent = `It's a tie! You both chose ${humanChoice}.`;
-        rScores.textContent = `You --------- computer \n   ${humanScore} --------- ${computerScore}`
+
+
 
     }
     if (humanChoice === "rock") {
@@ -30,14 +33,13 @@ function playRound(humanChoice, computerChoice) {
 
             result.textContent = 'You win! Rock beats scissors';
             humanScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
+
 
         }
         else {
 
             result.textContent = 'You lose! Paper beats Rock';
             computerScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
 
         }
     }
@@ -46,7 +48,7 @@ function playRound(humanChoice, computerChoice) {
 
             result.textContent = 'You win! Paper beats Rock';
             humanScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
+
 
 
         }
@@ -54,7 +56,7 @@ function playRound(humanChoice, computerChoice) {
 
             result.textContent = 'You lose! Scissors beats Paper';
             computerScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
+
 
 
         }
@@ -64,16 +66,15 @@ function playRound(humanChoice, computerChoice) {
 
             result.textContent = 'You win! Scissors beats Paper';
             humanScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
-
         }
         else {
             result.textContent = 'You lose! Rock beats scissors';
             computerScore++;
-            rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
+        
 
         }
     }
+    rScores.textContent = `You --------- computer \n ${humanScore} --------- ${computerScore}`
 
     if (humanScore == 5) {
         finalResult.textContent = "you win this game congrats !!!"
@@ -101,7 +102,7 @@ function playRound(humanChoice, computerChoice) {
 
 
 
-const finalResult = document.querySelector("#finalResult")
+
 const rock = document.querySelector("#rock")
 rock.addEventListener("click", () => { playRound("rock", getComputerChoice()) });
 
